@@ -9,7 +9,7 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "start": "nodemon server/bin/www",
+    "start": "npx nodemon server/bin/www",
     "server": "cd server && npm run dev",
     "client": "cd client && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",

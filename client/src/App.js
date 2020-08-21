@@ -6,7 +6,7 @@ function App() {
   const [test, setTest] = React.useState(null);
 
   React.useEffect(() => {
-    fetch('/users')
+    fetch('/api/health')
       .then(results => results.json())
       .then(data => setTest(JSON.stringify(data)));
   }, []);

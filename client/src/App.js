@@ -3,12 +3,23 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [test, setTest] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch('/users')
+      .then(results => results.json())
+      .then(data => setTest(JSON.stringify(data)));
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <p>
+          {test}
         </p>
         <a
           className="App-link"

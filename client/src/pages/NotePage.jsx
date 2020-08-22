@@ -3,7 +3,7 @@ import NotesRepository from '../repositories/NoteRepository';
 import { useParams } from "react-router-dom"
 const debounce = require('debounce-promise')
 
-const AUTO_SAVE__DEBOUNCE_TIME = 500;
+const AUTO_SAVE__DEBOUNCE_TIME = 100;
 
 function NotePage() {
 	const { noteId } = useParams();

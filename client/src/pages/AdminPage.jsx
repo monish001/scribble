@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import NotesRepository from '../repositories/NoteRepository';
 
 function AdminPage() {
@@ -34,7 +35,7 @@ function AdminPage() {
 			</thead>
 			<tbody>
 				{notes.map(note => <tr key={note.getId()}>
-					<td>{note.getId()}</td>
+					<td><Link to={`/notes/${note.getId()}`}>{note.getId()}</Link></td>
 					<td>{note.getText()}</td>
 					<td>{note.getCreatedAt()}</td>
 				</tr>)}

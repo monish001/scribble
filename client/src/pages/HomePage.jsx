@@ -6,7 +6,7 @@ function HomePage() {
 	return <>
 		<h2>Home</h2>
 		<div>
-			<Link to={`/new/${uuidv4()}`}>New</Link>
+			<Link to={`/notes/${uuidv4()}`}>New</Link>
 		</div>
 	</>;
 }

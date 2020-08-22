@@ -28,7 +28,7 @@ function App() {
 							<Link to="/">Home</Link>
 						</li>
 						<li>
-							<Link to="/admin">Admin</Link>
+							<Link to="/dashboard">Dashboard</Link>
 						</li>
 					</ul>
 				</nav>
@@ -36,10 +36,10 @@ function App() {
 				{/* A <Switch> looks through its children <Route>s and
 					renders the first one that matches the current URL. */}
 				<Switch>
-					<Route path="/new/:noteId">
+					<Route path="/notes/:noteId">
 						<NotePage />
 					</Route>
-					<Route path="/admin">
+					<Route path="/dashboard">
 						<AdminPage />
 					</Route>
 					<Route path="/">

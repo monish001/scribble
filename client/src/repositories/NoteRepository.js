@@ -37,7 +37,7 @@ class NotesRepository {
             })
         })
             .then(results => results.json())
-            .then(console.log);
+            .then(({ id, text, createdAt }) => new Note({ id, text, createdAt }))
     }
 }
 

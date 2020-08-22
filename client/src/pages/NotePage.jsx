@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import NotesRepository from '../repositories/NoteRepository';
 import { useParams } from "react-router-dom"
-var debounce = require('debounce-promise')
+const debounce = require('debounce-promise')
 
 const AUTO_SAVE__DEBOUNCE_TIME = 500;
 
@@ -33,7 +33,7 @@ function NotePage() {
 			}
 		}
 		initialiseNote();
-	}, []);
+	}, [noteId]);
 
 	const save = async (newText) => {
 		try {

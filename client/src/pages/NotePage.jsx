@@ -52,10 +52,14 @@ function NotePage() {
 	return <>
 		<h2>Notes</h2>
 		{isFetching && <p>Loading...</p>}
-		{!isFetching && !errorFetching && <textarea value={noteText} onChange={handleChange} />}
+		{!isFetching && !errorFetching && <textarea
+			value={noteText}
+			onChange={handleChange}
+			placeholder="Enter notes here.."
+		/>}
 		{!isFetching && errorFetching && <p>{errorFetching}</p>}
 		{isSaving && <p>Saving...</p>}
-		{!isSaving && !errorSaving && <p>Saved!</p>}
+		{!isSaving && !errorSaving && <p> </p>}
 		{!isSaving && errorSaving && <p>{errorSaving}</p>}
 	</>;
 }

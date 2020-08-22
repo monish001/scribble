@@ -13,11 +13,14 @@ function NotePage() {
 	const [errorFetching, setErrorFetching] = React.useState(null);
 
 	const [isSaving, setIsSaving] = React.useState(false);
+	const [isPristine, setIsPrisine] = React.useState(true);
 	const [errorSaving, setErrorSaving] = React.useState(null);
 
 	async function handleChange(e) {
 		const newText = e.target.value
 		setNoteText(newText);
+		setIsPrisine(false);
+		setIsSaving(true);
 		debouncedSave(newText);
 	}
 
@@ -39,7 +42,6 @@ function NotePage() {
 
 	const save = async (newText) => {
 		try {
-			setIsSaving(true);
 			await NotesRepository.update(noteId, { text: newText });
 			setErrorSaving(null);
 		} catch (e) {
@@ -65,7 +67,7 @@ function NotePage() {
 		{!isFetching && errorFetching && <p>{errorFetching}</p>}
 		{noteCreatedAtISO && <p>{`Expiring by ${new Date(createdAtPlusOneDay)}`}</p>}
 		{isSaving && <p>Saving...</p>}
-		{!isSaving && !errorSaving && <p> </p>}
+		{!isSaving && !errorSaving && !isPristine && <p>Saved!</p>}
 		{!isSaving && errorSaving && <p>{errorSaving}</p>}
 	</>;
 }

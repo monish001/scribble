@@ -3,7 +3,7 @@ const app = express();
 app.locals.notes = app.locals.notes || {};
 
 function initIfNotExists(id) {
-    app.locals.notes[id] = app.locals.notes[id] || { id, text: 'default', createAt: new Date().toISOString() };
+    app.locals.notes[id] = app.locals.notes[id] || { id, text: '', createAt: new Date().toISOString() };
 }
 
 const get = function (filters) {

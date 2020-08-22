@@ -1,5 +1,10 @@
 const notesService = require('../services/notes');
 
+const getAll = function (req, res, next) {
+    const notes = notesService.getAll();
+    res.json(notes);
+}
+
 const get = function (req, res, next) {
     const { noteId } = req.params;
     const note = notesService.get({ id: noteId });
@@ -15,6 +20,7 @@ const put = function (req, res, next) {
 }
 
 module.exports = {
+    getAll,
     get,
     put
 }

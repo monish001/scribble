@@ -13,6 +13,11 @@ class Note {
 }
 
 class NotesRepository {
+    static getAll() {
+        return fetch(`/api/notes`)
+            .then(results => results.json())
+            .then(notes => Object.values(notes).map(({ id, text, createdAt }) => new Note({ id, text, createdAt })))
+    }
     static get(noteId) {
         return fetch(`/api/notes/${noteId}`)
             .then(results => results.json())

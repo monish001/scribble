@@ -3,7 +3,22 @@ const app = express();
 app.locals.notes = app.locals.notes || {};
 
 function initIfNotExists(id) {
-    app.locals.notes[id] = app.locals.notes[id] || { id, text: '', createdAt: new Date().toISOString() };
+    if (!app.locals.notes[id]) {
+        app.locals.notes[id] = {
+            id,
+            text: '',
+            createdAt: new Date().toISOString()
+        };
+        setTimeout(() => {
+            console.log("Deleting ", id);
+            delete app.locals.notes[id];
+            console.log("Deleted ", id);
+        }, 1000 * 86400);
+    }
+}
+
+const getAll = function () {
+    return app.locals.notes;
 }
 
 const get = function (filters) {
@@ -19,5 +34,5 @@ const put = function ({ id, note: { text } }) {
 }
 
 module.exports = {
-    get, put
+    getAll, get, put
 }

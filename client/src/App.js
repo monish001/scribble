@@ -3,8 +3,10 @@ import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
+	Link
 } from "react-router-dom"; import HomePage from "./pages/HomePage";
 import NotePage from "./pages/NotePage";
+import AdminPage from "./pages/AdminPage";
 import './App.css';
 
 function App() {
@@ -20,25 +22,25 @@ function App() {
 		<Router>
 			<div>
 				<p>{test}</p>
-				{/* <nav>
+				<nav>
 					<ul>
 						<li>
 							<Link to="/">Home</Link>
 						</li>
 						<li>
-							<Link to="/about">About</Link>
-						</li>
-						<li>
-							<Link to="/users">Users</Link>
+							<Link to="/admin">Admin</Link>
 						</li>
 					</ul>
-				</nav> */}
+				</nav>
 
 				{/* A <Switch> looks through its children <Route>s and
 					renders the first one that matches the current URL. */}
 				<Switch>
 					<Route path="/new/:noteId">
 						<NotePage />
+					</Route>
+					<Route path="/admin">
+						<AdminPage />
 					</Route>
 					<Route path="/">
 						<HomePage />

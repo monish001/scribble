@@ -1,19 +1,22 @@
 class Note {
     id;
     text;
-    constructor({ id, text }) {
+    createdAt;
+    constructor({ id, text, createdAt }) {
         this.id = id;
         this.text = text;
+        this.createdAt = createdAt
     }
     getId() { return this.id; }
     getText() { return this.text; }
+    getCreatedAt() { return this.createdAt; }
 }
 
 class NotesRepository {
     static get(noteId) {
         return fetch(`/api/notes/${noteId}`)
             .then(results => results.json())
-            .then(({ id, text }) => new Note({ id, text }))
+            .then(({ id, text, createdAt }) => new Note({ id, text, createdAt }))
     }
     static update(noteId, fiields) {
         return fetch(`/api/notes/${noteId}`, {
